@@ -1,7 +1,8 @@
 import java.time.LocalDateTime;
 import java.util.List;
+import java.util.Iterator;
 
-public class User {
+public class User implements IterableByUser{
     private final String name;
     private final ChatServer mediator;
     private final ChatHistory history;
@@ -48,5 +49,10 @@ public class User {
     public void blockUser(User userToBlock) {
         System.out.println(this.name + " blocked " + userToBlock.getName());
         mediator.blockUser(this, userToBlock);
+    }
+
+    @Override
+    public Iterator<Message> iterator(User userToSearchWith) {
+        return history.iterator(userToSearchWith);
     }
 }

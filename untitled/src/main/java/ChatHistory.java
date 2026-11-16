@@ -1,7 +1,8 @@
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Iterator;
 
-public class ChatHistory {
+public class ChatHistory implements IterableByUser {
     private final List<Message> messages;
 
     public ChatHistory() {
@@ -21,5 +22,10 @@ public class ChatHistory {
 
     public List<Message> getMessages() {
         return messages;
+    }
+
+    @Override
+    public Iterator<Message> iterator(User userToSearchWith) {
+        return new SearchMessagesByUser(this.messages, userToSearchWith);
     }
 }
