@@ -9,8 +9,11 @@ public class ChatHistoryTest {
     @Test
     public void testGetLastMessageSent() {
         ChatHistory history = new ChatHistory();
-        Message msg1 = new Message(new User(), null, LocalDateTime.now(), "First Message");
-        Message msg2 = new Message(new User(), null, LocalDateTime.now(), "Second Message");
+        ChatServer server = new ChatServer();
+        User testUser = new User("Alice", server);
+
+        Message msg1 = new Message(testUser, null, LocalDateTime.now(), "First Message");
+        Message msg2 = new Message(testUser, null, LocalDateTime.now(), "Second Message");
 
         history.addMessage(msg1);
         history.addMessage(msg2);
