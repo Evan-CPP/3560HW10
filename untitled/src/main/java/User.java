@@ -40,7 +40,7 @@ public class User implements IterableByUser{
 
         if (lastMessage != null) {
             MessageMemento memento = new MessageMemento(lastMessage.getContent(), lastMessage.getTimestamp());
-            System.out.println(this.name + " undid message: '" + memento.getContent() + "']'");
+            System.out.println(this.name + " undid message: '" + memento.getContent() + "'");
         } else {
             System.out.println(this.name + " has no messages to undo.");
         }
